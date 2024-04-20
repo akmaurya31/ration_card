@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table with Tailwind CSS</title>
     <!-- Include Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100">
+<body class="">
 
 
 <?php 
@@ -30,47 +30,50 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 ?>
 
 
-<div class="pt-5">
+<div>
 
-    <div class="container bg-gray-300 mb-4 mx-auto">
-        <h1 class="text-2xl p-2 text-center font-bold ">All User List</h1>
-        <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
+    <div class="container bg-light mb-4">
+        <h3 class="text-center underline">All User List</h3>
+        <table class="table">
+        <thead class="bg-dark text-white">
+
                 <tr>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-lg font-medium text-gray-700 uppercase tracking-wider">
+                    <th scope="col">
                         No.
                     </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-lg font-medium text-gray-700 uppercase tracking-wider">
+                    <th scope="col">
                         Name
                     </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-lg font-medium text-gray-700 uppercase tracking-wider">
+                    <th scope="col">
                         User Name
                     </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-lg font-medium text-gray-700 uppercase tracking-wider">
+                    <th scope="col">
+                       
                         Email
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-lg font-medium text-gray-700 uppercase tracking-wider">
+                        >
                         Contact Name
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-lg font-medium text-gray-700 uppercase tracking-wider">
+                        >
                         Password
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-lg font-medium text-gray-700 uppercase tracking-wider">
+                        >
                         <button>Paid/Unpaid</button>
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-lg font-medium text-gray-700 uppercase tracking-wider">
-                        <button>Date</button>
+                        >
+                        <button>
+                            Date
+                                <input type="date" id="edate" class="text-dark" />
+
+
+                        </button>
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-lg font-medium text-gray-700 uppercase tracking-wider">
+                        >
                         <button>Edit</button>
                     </th>
                 </tr>
@@ -85,7 +88,14 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                 require_once("dbConnection.php");
 
                 // SQL query to fetch all users
-                $sql = "SELECT * FROM users";
+
+                    $filter_date = "";
+                    // $filter_date = "2024-04-20";
+
+                    $sql = "SELECT * FROM users";
+                    // $sql = "SELECT * FROM users WHERE pay_date = '$filter_date'";
+
+
                 $result = $mysqli->query($sql);
                 // $user_id=1;
                 // Check if any rows were returned
@@ -93,18 +103,18 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                     // Loop through rows and populate table rows
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['id'] . "</td>";
-                        echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['name'] . "</td>";
-                        echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['username'] . "</td>";
-                        echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['email'] . "</td>";
-                        echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['contact_number'] . "</td>";
-                        echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['password'] . "</td>";
-                        echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['pay'] . "</td>";
-                        echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row['pay_date'] . "</td>";
+                        echo "<td class='px-6 py-2 pb-0 whitespace-nowrap'>" . $row['id'] . "</td>";
+                        echo "<td class='px-6 py-2 pb-0 whitespace-nowrap'>" . $row['name'] . "</td>";
+                        echo "<td class='px-6 py-2 pb-0 whitespace-nowrap'>" . $row['username'] . "</td>";
+                        echo "<td class='px-6 py-2 pb-0 whitespace-nowrap'>" . $row['email'] . "</td>";
+                        echo "<td class='px-6 py-2 pb-0 whitespace-nowrap'>" . $row['contact_number'] . "</td>";
+                        echo "<td class='px-6 py-2 pb-0 whitespace-nowrap'>" . $row['password'] . "</td>";
+                        echo "<td class='px-6 py-2 pb-0 whitespace-nowrap'>" . $row['pay'] . "</td>";
+                        echo "<td class='px-6 py-2 pb-0 whitespace-nowrap'>" . $row['pay_date'] . "</td>";
  ?>
  
- <td class='px-6 py-4 whitespace-nowrap'>
-    <button class='neditButton' data-toggle='modal' data-target='#myModal' data-userid='<?php echo $row['id']; ?>'>edit</button>
+ <td class='px-6 py-2 pb-0 whitespace-nowrap'>
+    <button class='neditButton btn btn-success py-1 text-white' data-toggle='modal' data-target='#myModal' data-userid='<?php echo $row['id']; ?>'>Edit</button>
 </td>
 
  <?php                
@@ -127,12 +137,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
         </table>
     </div>
 
-    <!-- <button type="button" 
-                class="buy-btn bg-green-500 hover:bg-green-600 
-						text-white font-semibold py-2 px-6 rounded-lg 
-						transition duration-300 ease-in-out"
-                         data-toggle="modal" data-target="#myModal">Pay Now</button> -->
-
 
     <div>
 
@@ -143,6 +147,15 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -159,7 +172,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 <body>
 
 <div class="container">
-  <h2>Edit</h2>
 
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">

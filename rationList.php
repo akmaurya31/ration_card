@@ -9,17 +9,17 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 p-4">
+<body class="bg-gray-100">
 
 
 <?php require_once("header.php"); 
   ?>
 
 
-<div class="p-5">
+<div class="">
 
-    <div class="container bg-gray-300 mx-auto">
-        <h1 class="text-2xl text-center font-bold ">All Request List</h1>
+    <div class="container my-4 mx-auto">
+        <h1 class="text-2xl text-center bg-info text-white py-2 rounded font-bold ">All Request List</h1>
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
@@ -104,7 +104,7 @@
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='4' class='px-6 py-4 text-center'>No users found</td></tr>";
+                    echo "<tr><td colspan='5' class='px-6 py-4 text-center'>No users found</td></tr>";
                 }
 
                 // Close database connection

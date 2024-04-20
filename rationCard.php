@@ -4,70 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add New Ration</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <div id="root"></div> <!-- This is where your React component will be rendered -->
-  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-  <script src="login.js"></script> <!-- Include your compiled JavaScript file -->
+  <?php require_once("header.php"); ?>
 
-
-  <?php require_once("header.php"); 
-//   print_r($_SESSION)
-  ?>
-
-  <div class="h-[600px] w-[350px] mx-auto flex items-center align-middle">
-  <form action="addNewRationCard.php" method="post" name="add">
-  <div class="p-6 rounded shadow shadow-gray-500">
-    <div class="font-serif text-xl font-bold text-center text-red-700">
-      Request Ration Card
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form action="addNewRationCard.php" method="post" name="add">
+          <div class="p-4 bg-light rounded shadow">
+            <div class="h3 text-center font-bold text-danger mb-4">
+              Request Ration Card
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label font-bold">Candidate Name :</label>
+              <input
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder="Enter name"
+                type="text"
+                style="background: #d8e2e8; color:balck; font-weight:bold;"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="adhar" class="form-label font-bold">Adhar Card No. :</label>
+              <input
+                id="adhar"
+                name="adhar"
+                class="form-control placehoder:bg-info"
+                placeholder="Enter adhar no."
+                type="number"
+                style="background: #d8e2e8; color:balck; font-weight:bold;"
+               
+              />
+            </div>
+            <div class="mb-3">
+              <label for="ration" class="form-label font-bold">Ration No. :</label>
+              <input
+                id="ration"
+                name="ration"
+                class="form-control"
+                placeholder="Enter ration"
+                type="number"
+                style="background: #d8e2e8; color:balck; font-weight:bold;"
+              />
+            </div>
+            <button class="btn btn-success w-100">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="flex flex-col my-5 gap-y-3 ">
-      <div>
-        <span class="my-2 font-bold text-gray-600">Candidate  Name :</span>
-        <br />
-        <input
-        name="name"
-          class="p-2 px-3 border border-gray-400 rounded shadow w-96"
-          placeholder="Enter name "
-          type="text"
-        />
-      </div>
-      <div>
-        <span class="my-2 font-bold text-gray-600">Adhar Card No. :</span>
-        <br />
-        <input
-          class="p-2 px-3 border border-gray-400 rounded shadow w-96"
-          placeholder="Enter adhar no. "
-          type="number"
-          name="adhar"
-        />
-      </div>
-      <div>
-        <span class="my-2 font-bold text-gray-600">Ration No. :</span>
-        <br />
-        <input
-          class="p-2 px-3 border border-gray-400 rounded shadow w-96"
-          placeholder="Enter ration "
-          type="number"
-          name="ration"
-        />
-      </div>
-      
-    </div>
-    <button class="w-full p-2 text-lg font-bold text-white bg-green-500 rounded-lg shadow">
-      submit
-    </button>
   </div>
-  </form>
 
-</div>
-
-
-
-<?php require_once("footer.php"); 
-//   print_r($_SESSION)
-  ?>
+  <?php require_once("footer.php"); ?>
+  
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -19,7 +19,8 @@ if (!isset($_SESSION['is_login'])) {
 <body class="bg-light">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4">
+  <nav class="navbar navbar-expand-lg  py-1" style="background-image:linear-gradient( 
+                to right, #00bfff, #00ffd5);">
     <div class="container">
       <!-- Logo -->
       <a class="navbar-brand" href="#">Your Logo</a>
@@ -31,10 +32,10 @@ if (!isset($_SESSION['is_login'])) {
       </button>
 
       <!-- Menu -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="dashboard.php">Home</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav text-sm me-auto">
+          <li class="nav-item text-xl">
+            <a class="nav-link text-danger text-xl" href="dashboard.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="rationCard.php">New Ration Card Req</a>

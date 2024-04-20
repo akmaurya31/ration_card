@@ -4,211 +4,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
-  <!-- Include Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Include Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 
 <?php 
-
-
 require_once("header.php");
-
-// session_start();
-// print_r($_SESSION);
 if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
     // echo "SFASDF";
-}else{
-  // echo "SF1111111ASDF";
-  // Redirect to login page
-  header("Location: dashboard.php");
-  exit();
+} else {
+    // Redirect to login page
+    header("Location: dashboard.php");
+    exit();
 }
 ?>
 
-
 <form action="addInformation.php" method="post" name="add">
+  <div class="container my-4 shadow shadow-light" style="width:800px; border:1px solid gray; border-radius:10px">
+    <div class="bg-light p-4 overflow-auto  flex flex-col mx-auto gap-y-5 h-800px w-650px">
+      <div class="flex flex-row justify-center  p-4">
+        <div class="text-xl font-bold text-center">
+          Create New Form
+        </div>
+      </div>
 
-<div class="h-[900px] mt-4 w-[700px ]">
-  <div class="bg-gray-200 p-4 overflow-auto  flex flex-col mx-auto gap-y-5 h-[800px] w-[650px]">
-    
-          <div class="flex flex-row justify-center  p-4">
-            <div class="text-xl font-bold text-center underline underline-offset-4">
-              Create New Form
-            </div>
+      <div class="d-flex justify-content-around">
+
+        <div class="form-group font-bold" style="width:50%">
+          <label for="ration_no">Rashan Card No :</label>
+          <input type="text" class="form-control" id="ration_no" name="ration_no" placeholder="Enter Your Rashan Card No.">
+        </div>
+
+        <div class="form-group ml-2 font-bold" style="width:50%">
+          <label for="town">Town :</label>
+          <input type="text" class="form-control" id="town" name="town" placeholder="Enter Your Home Town">
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-around">
+          <div class="form-group font-bold" style="width:50%">
+            <label for="mukhiya">Mukhiya</label>
+            <input type="text" class="form-control" id="mukhiya" name="mukhiya" placeholder="Enter Your Mukhiya Name">
           </div>
 
-          <div class="flex flex-row items-center justify-between mt-4 gap-x-3">
-            <div class="w-[50%]">
-              <span class="font-bold text-gray-500 w-44">
-                Rashan Card No.
-              </span>
-              <input
-                type="text "
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md"
-                placeholder="Enter Your Rashan Card No. "
-               name="ration_no"
-              />
-            </div>
-            <div>
-              <span class="font-bold text-gray-500 w-44">Town </span>
-              <input
-                type="text "
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md"
-                placeholder="Enter Your Home Town "
-                name="town"
-              />
-            </div>
+          <div class="form-group  ml-2 font-bold" style="width:50%">
+            <label for="father">Father/Husbend Name</label>
+            <input type="text" class="form-control" id="father" name="father" placeholder="Enter Name">
+          </div>
+      </div>
+
+      <div class="d-flex justify-content-around">
+
+        <div class="form-group font-bold" style="width:50%">
+          <label for="cast_certificate">Jati</label>
+          <input type="text" class="form-control" id="cast_certificate" name="cast_certificate" placeholder="Enter Your Jati">
+        </div>
+
+        <div class="form-group ml-2 font-bold" style="width:50%">
+          <label for="adhar">Adhar/Enrollment No.</label>
+          <input type="text" class="form-control" id="adhar" name="adhar" placeholder="Enter Number">
+        </div>
+      </div>
+
+      <div class="form-group font-bold">
+        <label for="address">Full Address</label>
+        <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter Your Address"></textarea>
+      </div>
+
+      <div class="d-flex justify-content-around">
+
+          <div class="form-group font-bold" style="width:50%">
+            <label for="gas_connection_no" >Gas Family Connection No.</label>
+            <input type="text" class="form-control" id="gas_connection_no" name="gas_connection_no" placeholder="Enter Number">
           </div>
 
-
-
-
-
-          <div class="flex flex-row items-center justify-between mt-2 gap-x-3">
-            <div class="w-[50%]">
-              <span class="font-bold text-gray-500 w-44">Mukhiya :</span>
-              <input
-                type="text "
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md"
-                placeholder="Enter Your Mukhiya Name "
-                name="mukhiya"
-              />
-            </div>
-            <div class="w-[50%]">
-              <span class="font-bold text-gray-500 w-44">
-                Father/Husbend Name :
-              </span>
-              <input
-                type="text "
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md"
-                placeholder="Enter Name "
-                name="father"
-              />
-            </div>
+          <div class="form-group ml-2 font-bold" style="width:50%">
+            <label for="dukan_no">Dukan No.</label>
+            <input type="text" class="form-control" id="dukan_no" name="dukan_no" placeholder="Enter Number">
           </div>
+      </div>
 
+      <div class="form-group font-bold">
+        <label for="unit">Unit No.</label>
+        <input type="number" class="form-control" id="unit" name="unit">
+      </div>
 
-
-          <div class="flex flex-row items-center justify-between mt-2 gap-x-3">
-            <div class="w-[50%]">
-              <span class="font-bold text-gray-500 w-44">Jati :</span>
-              <input
-                type="text "
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md"
-                placeholder="Enter Your Jati "
-                name="cast_certificate"
-              />
-            </div>
-            <div class="w-[50%]">
-              <span class="font-bold text-gray-500 w-44">
-                Adhar/Enrollment No. :
-              </span>
-              <input
-                type="text "
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md"
-                placeholder="Enter Number "
-               name="adhar"
-              />
-            </div>
-          </div>
-
-
-
-          <div class="flex flex-row items-center justify-between mt-2 gap-x-3">
-            <div class="w-[100%]">
-              <span class="font-bold text-gray-500 w-44">
-                Full Address :
-              </span>
-              <textarea
-                type="text "
-                rows={3}
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md"
-                placeholder="Enter Your Jati "
-               name="address"
-              ></textarea>
-
-            </div>
-          </div>
-
-          <div class="flex flex-row items-center justify-between mt-2 gap-x-3">
-            <div class="w-[50%]">
-              <span class="font-bold text-gray-500 w-44">
-                Gas Family Connection No. :
-              </span>
-              <input
-                type="text "
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md"
-                placeholder="Enter Number "
-               name="gas_connection_no"
-              />
-            </div>
-            <div class="w-[50%]">
-              <span class="font-bold text-gray-500 w-44">Dukan No. :</span>
-              <input
-                type="text "
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md"
-                placeholder="Enter Number "
-               name="dukan_no"
-              />
-            </div>
-
-
-          </div>
-
-
-
-
-
-          <div class="mt-2">
-            <span class="font-bold text-gray-500 w-44">Unit No.</span>
-            <div>
-              <input
-                type="number"
-                class="w-full p-2 px-4 mt-1 border border-gray-500 rounded-md "
-                name="unit"
-               />
-            </div>
-          </div>
-          <div class="mt-3">
-            <button
-              type="submit"
-              class="!bg-green-500 p-2 rounded-lg !text-white !font-bold !w-full"
-            >
-              Save
-            </button>
-          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-</div>
-
-
-
+      <div class="form-group mt-3">
+        <button type="submit" class="btn btn-success btn-block">Save</button>
+      </div>
+    </div>
+  </div>
 </form>
-
-
-
 
 <?php require_once("footer.php"); ?>
 

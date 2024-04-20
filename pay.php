@@ -284,23 +284,23 @@ require_once("footer.php");
 <body>
 
 <div class="container">
-  <h2>Modal Example</h2>
 
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="d-flex justify-between px-3 ">
+          
           <h4 class="   ">QR Code</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <!-- <p>Some text in the modal.</p> -->
           <img src="images/payment.jpeg" />
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger bg-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
       
